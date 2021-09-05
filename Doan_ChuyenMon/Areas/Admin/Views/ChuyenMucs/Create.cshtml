@@ -1,0 +1,51 @@
+﻿@model Doan_ChuyenMon.Models.ChuyenMuc
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm chuyên mục mới</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên chuyên mục</label>
+            <div class="col-md-10">
+                <input type="text" name="Ten" class="form-control" required placeholder="Nhập tên chuyên mục" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                <script type="text/javascript">
+                    CKEDITOR.replace("Mota");
+                </script>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaCT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaCT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaCT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="@Url.Action("Index","ChuyenMucs")" class="btn btn-success">Trở về danh sách</a>
+</div>

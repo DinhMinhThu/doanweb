@@ -1,0 +1,50 @@
+﻿@model PagedList.IPagedList<Doan_ChuyenMon.Models.LoaiSP>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách loại sản phẩm</h2>
+
+<p>
+    <a href="@Url.Action("Create","LoaiSPs")" class="btn btn-success">Thêm loại sản phẩm</a>
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mota)
+            </th>*@
+        <th>
+            Tên
+        </th>
+        <th>
+            Mô tả
+        </th>
+        @*<th>
+                Chức năng
+            </th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Ma }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Ma }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.Ma })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="text-center">@Html.PagedListPager(Model, page => Url.Action("Index", "LoaiSPs", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "get", UpdateTargetId = "sp_area" }))</div>

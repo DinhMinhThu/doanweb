@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Doan_ChuyenMon.Models.ChuyenMuc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách chuyên mục</h2>
+
+<p>
+    <a href="@Url.Action("Create","ChuyenMucs")" class="btn btn-primary">Thêm chuyên mục mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên chuyên mục
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Mã CT
+        </th>
+        @*<th>Chức năng</th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Ten
+            </td>
+            <td>
+                @Html.Raw(@item.Mota)
+            </td>
+            <td>
+                @item.MaCT
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Ma }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Ma }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Ma })
+            </td>
+        </tr>
+    }
+
+</table>
+

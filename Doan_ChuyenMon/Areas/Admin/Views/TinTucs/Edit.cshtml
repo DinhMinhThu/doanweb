@@ -1,0 +1,116 @@
+﻿@model Doan_ChuyenMon.Models.TinTuc
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sửa tin tức</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Ma)
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Mã CM</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaCM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaCM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Mô tả ngắn</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MotaNgan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MotaNgan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                <script type="text/javascript">
+                    CKEDITOR.replace("Mota")
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Ngày đăng</b>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.NgayDang, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NgayDang, "", new { @class = "text-danger" })*@
+                <input type="date" required class="form-control" name="Ngaydang" value="@Model.NgayDang" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="Anh" id="Anh" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-default" id="browse" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhtin" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $("#browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {;
+                    $("#Anh").val(fileUrl);
+                    $("#anhtin").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+
+        </script>
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Người đăng</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NguoiDang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NguoiDang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Tiêu biểu</b>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TieuBieu)
+                    @Html.ValidationMessageFor(model => model.TieuBieu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b class="control-label col-md-2">Loại tin</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LoaiTin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LoaiTin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="@Url.Action("Index","TinTucs")" class="btn btn-success">Trở về danh sách</a>
+</div>

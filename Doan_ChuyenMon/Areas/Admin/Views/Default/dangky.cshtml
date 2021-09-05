@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "dangky";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <!-- Outer Row -->
+    <!-- Nested Row within Card Body -->
+    <div class="row">
+        <div class="col-md-12 offset-md-3">
+            <div class="p-5">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Đăng kí tài khoản mới</h1>
+                </div>
+                @if (ViewBag.mess != null)
+                {
+                    <div class="thongbao alert alert-danger">@ViewBag.mess</div>
+                }
+                <form class="user" action="@Url.Action("dangky","Default")" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Họ và tên" name="txthoten" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="txtemail" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Tên tài khoản" name="txtten" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="txtmatkhau" required placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="txtAnh" name="txtanh" required placeholder="Đường dẫn ảnh đại diện">
+                        <input type="button" id="txtChonanh" class="btn btn-danger form-control form-control-user" value="Chọn ảnh" style="margin-top:20px" />
+                        <script>
+                                $('#txtChonanh').click(function () {
+                                    var finder = new CKFinder();
+                                    finder.selectActionFunction = function (fileUrl) {
+                                        $('#txtAnh').val(fileUrl);
+                                    };
+                                    finder.popup();
+                                })
+                        </script>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng kí" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.thongbao').delay(5000).fadeOut(300);
+</script>
+
+

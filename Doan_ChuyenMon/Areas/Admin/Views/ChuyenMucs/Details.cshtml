@@ -1,0 +1,51 @@
+﻿@model Doan_ChuyenMon.Models.ChuyenMuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChuyenMuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Mã CT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCT)
+        </dd>
+
+        <dt>
+            Mô tả ngắn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinTuc.MotaNgan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Ma }) |
+    <a href="@Url.Action("Index","ChuyenMucs")" class="btn btn-success">Trở về danh sách</a>
+</p>

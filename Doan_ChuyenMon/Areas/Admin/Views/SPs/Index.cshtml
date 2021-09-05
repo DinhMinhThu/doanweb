@@ -1,0 +1,103 @@
+﻿@model PagedList.IPagedList<Doan_ChuyenMon.Models.SP>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    <a href="@Url.Action("Create","SPs")" class="btn btn-primary">Thêm sản phẩm mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Ảnh đại diện
+        </th>
+        <th>
+            Tiêu biểu
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Xoá
+        </th>
+
+        <th>
+            Giá
+        </th>
+        <th>
+            Ngày đăng
+        </th>
+        <th>
+            Đơn vị tính
+        </th>
+        <th>
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Ten
+            </td>
+            <td>
+                <img src="@item.AnhNho" width="100" height="100" />
+            </td>
+            <td>
+                @if (@item.TieuBieu == true)
+                {
+                    <span>Tiêu biểu</span>
+                }
+                else
+                {
+                    <span>Không tiêu biểu</span>
+                }
+            </td>
+            <td>
+                @if (@item.TrangThai == true)
+                {
+                    <span>Hoạt động</span>
+                }
+                else
+                {
+                    <span>Không hoạt động</span>
+                }
+            </td>
+            <td>
+                @if (@item.Xoa == true)
+                {
+                    <span>có</span>
+                }
+                else
+                {
+                    <span>Không</span>
+                }
+            </td>
+            <td>
+                @Convert.ToDecimal(item.Gia).ToString("##,#")
+            </td>
+
+            <td>
+                @item.NgayDang
+            </td>
+            <td>
+                @item.DVT
+            </td>
+
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Ma }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Ma }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.Ma })
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", "SPs", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "sp_area" }))

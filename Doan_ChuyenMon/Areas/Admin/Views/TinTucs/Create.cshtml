@@ -1,0 +1,108 @@
+﻿@model Doan_ChuyenMon.Models.TinTuc
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm tin tức mới</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Chuyên mục</label>
+            <div class="col-md-10">
+                @Html.DropDownList("MaCM", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MotaNgan, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                <script type="text/javascript">
+                    CKEDITOR.replace("Mota")
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày đăng</label>
+            <div class="col-md-10">
+                <input type="date" name="NgayDang" class="form-control" id="Ngaydang" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="Anh" id="Anh" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-default" id="browse" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhtin" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {;
+                    $("#Anh").val(fileUrl);
+                    $("#anhtin").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+
+        </script>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Người đăng</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NguoiDang, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tiêu biểu</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TieuBieu)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Loại tin</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LoaiTin, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm mới" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="@Url.Action("Index","TinTucs")" class="btn btn-success">Trở về danh sách</a>
+</div>
+

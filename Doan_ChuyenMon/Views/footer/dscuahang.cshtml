@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách cửa hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Hệ thống cửa hàng</a></li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Hệ thống cửa hàng</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.820686101741!2d106.17023211445463!3d20.431458986324973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135e74f9949be2b%3A0xd96ebb29604f23e3!2zMTAyIFRyxrDhu51uZyBDaGluaCwgQsOgIFRyaeG7h3UsIFRQLiBOYW0gxJDhu4tuaCwgTmFtIMSQ4buLbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1619433642104!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="col-lg-5">
+            <div class="dscuahang">
+                <h4>Chọn địa điểm</h4>
+                <select class="chnamdinh">
+                    <option>
+                        Nam Định
+                    </option>
+                </select>
+                <br />
+                <br />
+                <div class="listds">
+                    <ul>
+                        <li> 1. Cửa hàng goodmarket số 102 Trường Chinh Nam Định <a href="https://www.google.com/maps/place/102+Tr%C6%B0%E1%BB%9Dng+Chinh,+B%C3%A0+Tri%E1%BB%87u,+TP.+Nam+%C4%90%E1%BB%8Bnh,+Nam+%C4%90%E1%BB%8Bnh,+Vi%E1%BB%87t+Nam/20.431464,106.1702321,17z/data=!3m1!4b1!4m5!3m4!1s0x3135e74f9949be2b:0xd96ebb29604f23e3!8m2!3d20.431459!4d106.1724208?hl=vi-VN"><img src="~/Lib/img/chiduong.jpg" />  </a></li>
+                        <li> 2. Cửa hàng goodmarket số 08 Trần Hưng Đạo, TP. Nam Định, Nam Định <a href="https://www.google.com/maps/place/Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o,+Tp.+Nam+%C4%90%E1%BB%8Bnh,+Nam+%C4%90%E1%BB%8Bnh,+Vi%E1%BB%87t+Nam/20.4237048,106.1732483,16z/data=!3m1!4b1!4m5!3m4!1s0x3135e74ba6c54cf1:0xf6e94f5a953917a1!8m2!3d20.4241713!4d106.1779435?hl=vi-VN"><img src="~/Lib/img/chiduong.jpg" />  </a></li>
+                        <li> 3. Cửa hàng goodmarket 446 Trần Huy Liệu, TP. Nam Định, Nam Định <a href="https://www.google.com/maps/place/Tr%E1%BA%A7n+Huy+Li%E1%BB%87u,+V%C4%83n+Mi%E1%BA%BFu,+Tp.+Nam+%C4%90%E1%BB%8Bnh,+Nam+%C4%90%E1%BB%8Bnh,+Vi%E1%BB%87t+Nam/20.4156186,106.1562091,17z/data=!3m1!4b1!4m5!3m4!1s0x3135de020c664fdf:0xd1d96e96152a1160!8m2!3d20.4156186!4d106.1583978?hl=vi-VN"><img src="~/Lib/img/chiduong.jpg" />  </a></li>
+                        <li> 4. Cửa hàng goodmarket 228 Lộc Hạ, TP. Nam Định, Nam Định <a href="https://www.google.com/maps/place/L%E1%BB%99c+H%E1%BA%A1,+TP.+Nam+%C4%90%E1%BB%8Bnh,+Nam+%C4%90%E1%BB%8Bnh,+Vi%E1%BB%87t+Nam/20.4502408,106.1803118,15z/data=!3m1!4b1!4m5!3m4!1s0x3135e7111360866d:0xe9bf4146c844df19!8m2!3d20.449876!4d106.1889721?hl=vi-VN"><img src="~/Lib/img/chiduong.jpg" />  </a></li>
+                        <li> 5. Cửa hàng goodmarket 11 Hoàng Văn Thụ, TP. Nam Định, Nam Định <a href="https://www.google.com/maps/place/11+Ho%C3%A0ng+V%C4%83n+Th%E1%BB%A5,+Phan+%C4%90%C3%ACnh+Ph%C3%B9ng,+TP.+Nam+%C4%90%E1%BB%8Bnh,+Nam+%C4%90%E1%BB%8Bnh,+Vi%E1%BB%87t+Nam/20.4236323,106.1780371,17z/data=!3m1!4b1!4m5!3m4!1s0x3135e74a673e1633:0x8fa0f46f749b5130!8m2!3d20.4236323!4d106.1802258?hl=vi-VN"><img src="~/Lib/img/chiduong.jpg" />  </a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <meta charset="UTF-8">
+    <meta name="description" content="Bán các loại sản phẩm về điện máy">
+    <meta name="keywords" content="điện thoại samsung, thẻ sim, iphone">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    @*<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">*@
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/Lib/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Lib/css/style.css" type="text/css" />
+
+</head>
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <header class="header">
+        <div class="header__top">
+            @*//top website*@
+            @Html.Partial("_headerTop")
+        </div>
+        @*logo và menu*@
+        <div id="topmenu">
+            @Html.Partial("_TopMenu")
+        </div>
+    </header>
+    <section class="hero">
+        @Html.Partial("_DanhMuc")
+    </section>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            @Html.Partial("_Footer")
+        </footer>
+    </div>
+    <script src="~/Lib/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Lib/js/bootstrap.min.js"></script>
+    <script src="~/Lib/js/jquery.nice-select.min.js"></script>
+    <script src="~/Lib/js/jquery-ui.min.js"></script>
+    <script src="~/Lib/js/jquery.slicknav.js"></script>
+    <script src="~/Lib/js/mixitup.min.js"></script>
+    <script src="~/Lib/js/owl.carousel.min.js"></script>
+    <script src="~/Lib/js/main.js"></script>
+
+</body>
+</html>
+

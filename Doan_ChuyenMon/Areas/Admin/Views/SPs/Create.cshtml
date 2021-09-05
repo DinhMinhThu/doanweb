@@ -1,0 +1,232 @@
+﻿@model Doan_ChuyenMon.Models.SP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm sảm phẩm mới</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên sản phẩm</label>
+            <div class="col-md-10">
+                <input type="text" name="Ten" class="form-control" required placeholder="Nhập tên sp" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <script type="text/javascript">
+            CKEDITOR.replace("MoTa");
+        </script>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mã loại</label>
+            <div class="col-md-10">
+                @* <input type="text" class="form-control" name="MaLoai" required placeholder="Nhập mã loại" />*@
+                @Html.DropDownList("maloai", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh đại diện</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="AnhNho" id="AnhNho" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-default" id="browse" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhdaidien" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    // fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                    $("#AnhNho").val(fileUrl);
+                    $("#anhdaidien").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+        </script>
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh 1</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="Anh1" id="Anh1" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-default" id="browse1" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhdd1" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#browse1").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    // fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                    $("#Anh1").val(fileUrl);
+                    $("#anhdd1").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+
+        </script>
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh 2</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="Anh2" id="Anh2" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-default" id="browse2" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhdd2" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#browse2").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    // fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                    $("#Anh2").val(fileUrl);
+                    $("#anhdd2").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+
+        </script>
+        <div class="form-group">
+            <label class="control-label col-md-2">Ảnh 3</label>
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <input type="text" name="Anh3" id="Anh3" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-default" id="browse3" value="browse" />
+                </div>
+                <div class="col-md-3">
+                    <img src="#" id="anhdd3" width="50" height="50" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#browse3").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    // fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                    $("#Anh3").val(fileUrl);
+                    $("#anhdd3").attr("src", fileUrl);
+                }
+                finder.popup();
+            });
+
+        </script>
+        <div class="form-group">
+            <label class="control-label col-md-2">Thông số KT</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.TSKT, new { htmlAttributes = new { @class = "form-control" } })
+                <script type="text/javascript">
+                    CKEDITOR.replace("TSKT");
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tiêu biểu</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TieuBieu)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Trạng thái</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TrangThai)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Xoá</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Xoa)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Hãng sản xuất</label>
+            <div class="col-md-10">
+                <input type="text" name="Hang" class="form-control" required placeholder="Nhập hãng sx" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giá</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Khuyến mãi</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KhuyenMai, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày đăng</label>
+            <div class="col-md-10">
+                <input type="date" name="Ngaydang" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Đơn vị tính</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DVT, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm mới" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="@Url.Action("Index","SPs")" class="btn btn-success">Trở về Danh sách</a>
+</div>

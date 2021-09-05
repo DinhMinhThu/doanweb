@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script src="~/Areas/admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin : <b>@Session["nd"]</b><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("dangky","Default")">Đăng ký tài khoản</a></li>
+                            <li><a href="@Url.Action("thaydoimatkhau","Default")">Thay đổi mật khẩu</a></li>
+                            <li><a href="@Url.Action("capmatkhaumoi","Default")">Lấy lại mật khẩu</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Login","Default")">Thoát</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Trang chủ <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý sản phẩm <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index","SPs")">Danh sách sản phẩm</a></li>
+                            <li><a href="@Url.Action("Create","SPs")">Thêm sản phẩm mới</a></li>
+                            <li><a href="@Url.Action("Timkiem","SPs")">Tìm kiếm sản phẩm </a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Index","LoaiSPs")">Danh sách loại sản phẩm</a></li>
+                            <li><a href="@Url.Action("Create","LoaiSPs")">Thêm loại sản phẩm mới</a></li>
+                            <li><a href="@Url.Action("Timkiem","LoaiSPs")">Tìm kiếm loại sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý tin tức <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index","TinTucs")">Danh sách tin</a></li>
+                            <li><a href="@Url.Action("Create","TinTucs")">Thêm tin mới</a></li>
+                            <li><a href="@Url.Action("Timkiem","TinTucs")">Tìm kiếm tin</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Index","ChuyenMucs")">Danh sách chuyên mục</a></li>
+                            <li><a href="@Url.Action("Create","ChuyenMucs")">Thêm chuyên mục</a></li>
+                            <li><a href="@Url.Action("Timkiem","ChuyenMucs")">Tìm kiếm chuyên mục</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý đơn hàng <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Danh sách đơn hàng mới</a></li>
+                            <li><a href="#">Danh sách đơn hàng đã duyệt</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Index","KhachHangs")">Danh sách khách hàng</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />*@
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

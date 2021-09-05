@@ -1,0 +1,101 @@
+﻿@model Doan_ChuyenMon.Models.TinTuc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xoá tin tức</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Mã CM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCM)
+        </dd>
+
+        <dt>
+            Mô tả ngắn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotaNgan)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ngày đăng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDang)
+        </dd>
+
+        <dt>
+            Ảnh
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Anh)" height="100px" width="100px" />
+        </dd>
+
+        <dt>
+            Người đăng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDang)
+        </dd>
+
+        <dt>
+            Tiêu biểu
+        </dt>
+
+        <dd>
+            if(@Html.DisplayFor(model => model.TieuBieu) ==)
+            {
+            <span>Tiêu biểu</span>
+            }
+            else
+            {
+            Không tiểu biểu
+            }
+        </dd>
+
+        <dt>
+            Loại tin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiTin)
+        </dd>
+
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuyenMuc.Ten)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-success" />
+            <a href="@Url.Action("Index","TinTucs")" class="btn btn-success">Trở về danh sách</a>
+        </div>
+    }
+</div>

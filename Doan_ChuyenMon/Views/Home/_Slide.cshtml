@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Doan_ChuyenMon.Models.SP>
+<div class="section-title">
+    <h2 class="title">
+        <img src="http://theme.hstatic.net/1000191320/1000558385/14/flash_sale.png?v=831" width="80px" />
+        <span>Bản tin khuyến mãi</span>
+    </h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                        <h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

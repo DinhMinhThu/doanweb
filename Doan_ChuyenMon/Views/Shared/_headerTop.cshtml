@@ -1,0 +1,48 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-5 col-md-5">
+            <div class="header__top__left">
+                <ul>
+                    <li> <a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i></a>Trang chủ</li>
+                    <li><i class="fa fa-envelope"></i>Email:hphuy1206@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-7">
+            <div class="header__top__right">
+                <div class="header__top__right__social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+                <div class="header__top__right__language">
+                    <img src="~/Lib/img/vietnam.png" alt="">
+                    <div>Tiếng Việt</div>
+                    <span class="arrow_carrot-down"></span>
+                    <ul>
+                        <li><a href="#">Tiếng Việt</a></li>
+                        <li><a href="#">English</a></li>
+                    </ul>
+                </div>
+                @if (Session["ten"] == null)
+                {
+                    <div class="header__top__right__auth">
+                        <a href="@Url.Action("dangnhap", "TaiKhoan")"> <i class="fa fa-user"></i> Đăng nhập</a> | <a href="@Url.Action("dangky", "TaiKhoan")">Đăng ký</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="header__top__right__language">
+                        <div><i class="fa fa-user"></i>  @Session["ten"]</div>
+                        <span class="arrow_carrot-down"></span>
+                        <ul>
+
+                            <li><a href="@Url.Action("LogOut", "Home")">Thoát</a></li>
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
