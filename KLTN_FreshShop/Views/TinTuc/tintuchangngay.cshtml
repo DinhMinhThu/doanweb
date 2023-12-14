@@ -1,0 +1,70 @@
+﻿@using KLTN_FreshShop.Models;
+@model IEnumerable<KLTN_FreshShop.Models.TinTuc>
+@{
+    ViewBag.Title = "Tin tức hàng ngày";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    KLTNEntities db = new KLTNEntities();
+    var dstt = db.TinTucs.ToList();
+    var dsTin = (List<TinTuc>)ViewBag.dsTinTucHangNgay;
+}
+<div class="container">
+    <h1 class="tintuc-topmenu">Tin tức</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Tư vấn dinh dưỡng</a></li>
+            <li class="breadcrumb-item"><a href="#">Cho mẹ bầu</a></li>
+        </ol>
+    </nav>
+    <section class="blog-details spad">
+        <div class="t1">
+            <div class="blog__sidebar">
+                <div class="blog__sidebar__search">
+                    <form action="@Url.Action("timkiem","TinTuc")">
+                        <input type="text" name="txtsearch" placeholder="Tin tức">
+                        <button type="submit"><span class="icon_search"></span></button>
+                    </form>
+                </div>
+                <div class="blog__sidebar__item">
+                    <h4 style="color: #7fad39; font-size:20px">Bài viết mới</h4>
+
+                    <div class="blog__sidebar__recent">
+                        <a href="#" class="blog__sidebar__recent__item">
+                            <div class="blog__sidebar__recent__item__pic">
+                                <img src="@Model" alt="">
+                            </div>
+                            @foreach (var itemtt in dstt)
+                            {
+                                <div class="blog__sidebar__recent__item__text">
+                                    <img width="100px" height="100px" src="@itemtt.Anh" />
+                                    <h6>
+                                        <a style="font-size:17px" href="@Url.Action("Chitiettin", "TinTuc", new { ma = itemtt.Ma })">@itemtt.MotaNgan</a>
+                                    </h6>
+                                    <span>@itemtt.NgayDang</span>
+                                </div>
+                            }
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="t2">
+            @foreach (var item in dsTin)
+            {
+                <div class="blog__details__text">
+                    <img src="@item.Anh" alt="">
+                    <br />
+                    <span>
+                        <h3 style="color: #7fad39; font-size:20px; font-family:Arial, Helvetica, sans-serif; font-style:italic">
+                            <a style="font-size:17px" href="@Url.Action("Chitiettin", "TinTuc", new { ma = item.Ma })">@item.MotaNgan</a>
+                        </h3>
+                    </span>
+                </div>
+            }
+        </div>
+    </section>
+</div>

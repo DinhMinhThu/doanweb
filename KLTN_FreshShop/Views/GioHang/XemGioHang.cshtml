@@ -1,0 +1,168 @@
+﻿@model KLTN_FreshShop.Models.SP
+@using KLTN_FreshShop.Models;
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="text-align:center"><b>GIỎ HÀNG</b></h2>
+<!-- Breadcrumb Section Begin -->
+@*<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Giỏ hàng</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Trang chủ</a>
+                            <span>Giỏ hàng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<!-- Breadcrumb Section End -->
+@{
+    List<GioHang> dssp = (List<GioHang>)ViewBag.dsgh;
+    var tongtien = 0.0;
+}
+<!-- Shoping Cart Section Begin -->
+@{
+    List<GioHang> dsgh = (List<GioHang>)Session["dsgh"];
+}
+@if (dsgh.Count() > 0)
+{
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Tên sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in dssp)
+                                {
+                                    <tr>
+                                        <td class="shoping__cart__item">
+                                            <img src="@item.Spham.AnhNho" width="300px" height="300px" alt="">
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            @if (item.Spham.KhuyenMai == null)
+                                            {
+                                                <h5>@Convert.ToDecimal(@item.Spham.Gia).ToString("##,#")</h5>
+                                            }
+                                            else
+                                            {
+                                                decimal km = Convert.ToDecimal(item.Spham.Gia * (100 - item.Spham.KhuyenMai) / 100);
+                                                <h5>@Convert.ToDecimal(km).ToString("##,#")</h5>
+                                            }
+
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                @*<div class="pro-qty">
+                                                        <input type="text" value="1">
+                                                    </div>*@
+                                                <a class="col-md-1" href="@Url.Action("GiamSL", "GioHang", new { ma = item.Spham.Ma })">-</a>
+                                                <input type="text" class="col-md-2" style="padding:0;margin:0;" value="@item.SoLuong" />
+                                                <a class="col-md-1" href="@Url.Action("TangSL", "GioHang", new { ma = item.Spham.Ma })">+</a>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            @{
+                                                var tong = item.SoLuong * item.Spham.Gia;
+                                                double km1 = Convert.ToDouble(item.Spham.Gia * (100 - item.Spham.KhuyenMai) / 100);
+                                                var tong2 = item.SoLuong * km1;
+                                                if (item.Spham.KhuyenMai == null)
+                                                {
+                                                    tongtien = tongtien + (double)tong;
+                                                }
+                                                else
+                                                {
+                                                    tongtien = tongtien + tong2;
+                                                }
+
+                                            }
+                                            @if (item.Spham.KhuyenMai == null)
+                                            {
+                                                <span>
+                                                    @Convert.ToDecimal(tong).ToString("##,#")
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    @Convert.ToDecimal(tong2).ToString("##,#")
+                                                </span>
+                                            }
+
+                                        </td>
+                                        <td class="shoping__cart__item__close">
+                                            <a href="@Url.Action("Xoa", "GioHang", new { ma = item.Spham.Ma })"><span class="icon_close"> </span></a>
+                                        </td>
+                                    </tr>
+                                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="@Url.Action("Index", "Home")" class="primary-btn cart-btn"> Mua tiếp</a>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right">
+                            <span class="icon_loading"></span>
+                            Cập nhật giỏ hàng
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Mã giảm giá</h5>
+                            <form action="#">
+                                <input type="text" placeholder="Nhập mã giảm giá">
+                                <button type="submit" class="site-btn">Gửi mã</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Tổng cộng</h5>
+                        <ul>
+                            <li>Tổng tiền <span>@Convert.ToDecimal(tongtien)</span></li>
+                            <li>Tổng cộng <span>@Convert.ToDecimal(tongtien)</span></li>
+                        </ul>
+                        <a href="@Url.Action("thanhtoan", "GioHang")" class="primary-btn">Thanh toán</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                                                }
+                                                else
+                                                {
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="section-title">
+                                                                <h2>Giỏ hàng trống</h2>
+                                                                <br />
+                                                                <a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+<!-- Shoping Cart Section End -->

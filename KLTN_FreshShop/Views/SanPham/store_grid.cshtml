@@ -1,0 +1,86 @@
+﻿@model KLTN_FreshShop.Models.SP
+@using KLTN_FreshShop.Models;
+@{
+    List<SP> sptl = (List<SP>)ViewBag.sptl;
+}
+@{
+    ViewBag.Title = "Sản phẩm theo loại";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="section-title">
+            <h2>@ViewBag.tenloaisp</h2>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+<!-- Product Section Begin -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="filter__item">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5">
+                        <div class="filter__sort">
+                            <span>Khoảng giá</span>
+                            <select onchange="changeFontSize(this)">
+                                <option selected="selected">Tất cả</option>
+                                <option value="0">Nhỏ hơn 100.000đ</option>
+                                <option value="1">Từ 100.000đ - 200.000đ</option>
+                                <option value="2">Từ 200.000đ - 300.000đ</option>
+                                <option value="3">Từ 300.000đ - 400.000đ</option>
+                                <option value="4">Lớn hơn 400.000đ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-2">
+                        <div class="filter__found">
+                            <h6><span>@ViewBag.dem</span>sản phẩm</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="filter__sort">
+                            <span>Thương hiệu</span>
+                            <select>
+                                <option selected="selected">Tất cả</option>
+                                <option value="0">Nam Định</option>
+                                <option value="0">Hoà Bình</option>
+                                <option value="0">Hải Dương</option>
+                                <option value="0">Cà Mau</option>
+                                <option value="0">Nha Trang</option>
+                                <option value="0">Đà Lạt</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        @foreach (var item in sptl)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 mix @item.Ma ">
+                <div class="featured__item">
+                    <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                        <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                            @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                        </div>
+                    </a>
+                    <div class="featured__item__text">
+                        <h6><a href="#">@item.Ten</a></h6>
+                        <h5>@Convert.ToDecimal(item.Gia).ToString("##,#")</h5>
+                        <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                            <button>
+                                <span>THÊM VÀO GIỎ</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

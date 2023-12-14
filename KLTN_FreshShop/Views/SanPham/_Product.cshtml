@@ -1,0 +1,375 @@
+﻿@model KLTN_FreshShop.Models.SP
+@using KLTN_FreshShop.Models;
+@{
+    var dssp4 = (List<SP>)ViewBag.dssp4;
+    var dssp5 = (List<SP>)ViewBag.dssp5;
+    var dssp6 = (List<SP>)ViewBag.dssp6;
+    var dssp7 = (List<SP>)ViewBag.dssp7;
+    var dssp9 = (List<SP>)ViewBag.dssp9;
+    var dssp10 = (List<SP>)ViewBag.dssp10;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Rau hữu cơ</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 4})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp4)
+            {
+                <div class="col-lg-3">
+                    <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                        <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                            @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                        </div>
+                    </a>
+                    <div class="featured__item__text">
+                        <h6><a href="#">@item.Ten</a></h6>
+                        <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                        <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                            <button>
+                                <span>THÊM VÀO GIỎ</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Rau củ an toàn</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 5})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp5)
+            {
+                if (item.KhuyenMai == 5)
+                {
+                    <div class="col-lg-3">
+                        <div class="sale">
+                            - 5%
+                        </div>
+                        <a href="@Url.Action("Chitiet", "Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            @if (item.KhuyenMai == null)
+                            {
+                                <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            }
+                            else
+                            {
+                                decimal km = Convert.ToDecimal(item.Gia * (100 - item.KhuyenMai) / 100);
+                                <h5>@km.ToString("##,#")₫ <del>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</del></h5>
+                            }
+                            <form action="@Url.Action("ThemGioHang", "GioHang", new { ma = item.Ma, soluong = 1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-3">
+                        <a href="@Url.Action("Chitiet", "Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            <form action="@Url.Action("ThemGioHang", "GioHang", new { ma = item.Ma, soluong = 1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Thịt cá dân dã</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 6})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp6)
+            {
+                <div class="col-lg-3">
+                    <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                        <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                            @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                        </div>
+                    </a>
+                    <div class="featured__item__text">
+                        <h6><a href="#">@item.Ten</a></h6>
+                        <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                        <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                            <button>
+                                <span>THÊM VÀO GIỎ</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Trái cây</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 7})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp7)
+            {
+                <div class="col-lg-3">
+                    <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                        <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                            @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                        </div>
+                    </a>
+                    <div class="featured__item__text">
+                        <h6><a href="#">@item.Ten</a></h6>
+                        <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                        <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                            <button>
+                                <span>THÊM VÀO GIỎ</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Hải sản</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 9})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp9)
+            {
+                if (item.KhuyenMai == 3)
+                {
+                    <div class="col-lg-3">
+                        <div class="sale">
+                            - 3%
+                        </div>
+                        <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            @if (item.KhuyenMai == null)
+                            {
+                                <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            }
+                            else
+                            {
+                                decimal km = Convert.ToDecimal(item.Gia * (100 - item.KhuyenMai) / 100);
+                                <h5>@km.ToString("##,#")₫ <del>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</del></h5>
+                            }
+                            <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else if (item.KhuyenMai == 16)
+                {
+                    <div class="col-lg-3">
+                        <div class="sale">
+                            - 16%
+                        </div>
+                        <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            @if (item.KhuyenMai == null)
+                            {
+                                <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            }
+                            else
+                            {
+                                decimal km = Convert.ToDecimal(item.Gia * (100 - item.KhuyenMai) / 100);
+                                <h5>@km.ToString("##,#")₫ <del>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</del></h5>
+                            }
+                            <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else if (item.KhuyenMai == 5)
+                {
+                    <div class="col-lg-3">
+                        <div class="sale">
+                            - 5%
+                        </div>
+                        <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            @if (item.KhuyenMai == null)
+                            {
+                                <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            }
+                            else
+                            {
+                                decimal km = Convert.ToDecimal(item.Gia * (100 - item.KhuyenMai) / 100);
+                                <h5>@km.ToString("##,#")₫ <del>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</del></h5>
+                            }
+                            <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-3">
+                        <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                            <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                                @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                            </div>
+                        </a>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Ten</a></h6>
+                            @if (item.KhuyenMai == null)
+                            {
+                                <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                            }
+                            else
+                            {
+                                decimal km = Convert.ToDecimal(item.Gia * (100 - item.KhuyenMai) / 100);
+                                <h5>@km.ToString("##,#") <del>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</del></h5>
+                            }
+                            <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                                <button>
+                                    <span>THÊM VÀO GIỎ</span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Hàng khô</h2>
+            </div>
+            <div class="xemthem">
+                <a class="linkxemthem" href="@Url.Action("store_grid","SanPham", new { ma = 10})">Xem thêm >>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row featured__filter">
+        <div class="categories__slider owl-carousel">
+            @foreach (var item in dssp10)
+            {
+                <div class="col-lg-3">
+                    <a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">
+                        <div class="categories__item set-bg" data-setbg="@item.AnhNho">
+                            @*<h5><a href="@Url.Action("Chitiet","Sanpham", new { ma = item.Ma })">@item.Ten</a></h5>*@
+                        </div>
+                    </a>
+                    <div class="featured__item__text">
+                        <h6><a href="#">@item.Ten</a></h6>
+                        <h5>@Convert.ToDecimal(@item.Gia).ToString("##,#")₫</h5>
+                        <form action="@Url.Action("ThemGioHang","GioHang", new { ma = item.Ma,soluong=1 })" method="post">
+                            <button>
+                                <span>THÊM VÀO GIỎ</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

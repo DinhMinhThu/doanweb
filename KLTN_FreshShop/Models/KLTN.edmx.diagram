@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f1f876f632541c99e39d0e320195a26" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="KLTNModel.ChiTietDonHang" Width="1.5" PointX="7.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.ChuyenMuc" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.DonHang" Width="1.5" PointX="5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.KhachHang" Width="1.5" PointX="2.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.LoaiSP" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.NguoiDung" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.PhieuGiamGia" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.PhieuNhap" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.Report" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.SP" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.sysdiagram" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KLTNModel.TinTuc" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="KLTNModel.FK_ChiTietDonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK_ChiTietDonHang_SP" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK_TinTuc_ChuyenMuc" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK_SP_LoaiSP" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK__PhieuNhap__lastM__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK__Report__lastModi__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK__PhieuNhap__Mancc__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK__PhieuNhap__MaSP__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="KLTNModel.FK__Report__MaPhieuN__5DCAEF64" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

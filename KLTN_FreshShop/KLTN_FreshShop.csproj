@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33CA7E89-1A52-4A61-9AA6-8E7C6F29597F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KLTN_FreshShop</RootNamespace>
+    <AssemblyName>KLTN_FreshShop</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChuyenMucsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSPsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SPsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\footerController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
+    <Compile Include="Global.asax.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChiTietDonHang.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChuyenMuc.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonHang.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHangController.cs" />
+    <Compile Include="Models\GuiEmailController.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KLTN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KLTN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KLTN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KLTN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KLTN.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiSP.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NguoiDung.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaCungCap.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhieuGiamGia.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhieuNhap.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Report.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TinTuc.cs">
+      <DependentUpon>KLTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Content\files\anhto.jpg" />
+    <Content Include="Areas\Admin\Content\files\chong-ung-thu-3-sfood-new.jpg" />
+    <Content Include="Areas\Admin\Content\files\images.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho%281%29.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho%282%29.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho1%281%29.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho1.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho2.jpg" />
+    <Content Include="Areas\Admin\Content\files\nho3.jpg" />
+    <Content Include="Areas\Admin\Content\files\pate.jpg" />
+    <Content Include="Areas\Admin\Content\files\Qua%2520Ngot%2520-%2520Summer%2520Ripe%252005.jpg" />
+    <Content Include="Areas\Admin\Content\files\Thien%2520Tue%2520-%2520Cyad%252002.jpg" />
+    <Content Include="Areas\Admin\Content\files\Thumbnail_005.jpg" />
+    <Content Include="Areas\Admin\Content\files\Thumbnail_032.jpg" />
+    <Content Include="Areas\Admin\Content\files\Thumbnail_039.jpg" />
+    <Content Include="Areas\Admin\Content\files\to%281%29.jpg" />
+    <Content Include="Areas\Admin\Content\files\to%282%29.jpg" />
+    <Content Include="Areas\Admin\Content\files\to.jpg" />
+    <Content Include="Areas\Admin\Content\files\to1.jpg" />
+    <Content Include="Areas\Admin\Content\files\vang-sua-sfood.jpg" />
+    <Content Include="Areas\Admin\Content\files\Xanh%2520La%2520Non%2520-%2520Colours%252002.jpg" />
+    <Content Include="Areas\Admin\Content\files\xucxich.jpg" />
+    <Content Include="Areas\Admin\Content\images\13_8cf2d044fc1443dc8f28f9d0ebd445a3_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\13_8cf2d044fc1443dc8f28f9d0ebd445a3_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\4_26eb5d0b43a14d1aa51a3c22d5ed58ba_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\608f8f9b8dff6da134ee_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\608f8f9b8dff6da134ee_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\9495967924254_29d48654446b406d99bf7bbe04c57e7c_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ca-chim-trang-vay-vang_1532337569__compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ca-chim-trang-vay-vang_1532337569__master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ca-chim-vay-vang1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ca-chim-vay-vang_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\HaiSan\15492240_136226013532536_8819659993434445042_n_master.png" />
+    <Content Include="Areas\Admin\Content\images\luon-dong2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\luon-dong_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\luon-dong_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\1.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\10_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\10_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\2.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\3%281%29.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\3.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\4%281%29.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\4.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\7_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\7_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\8_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\8_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\cai-ngot_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\cai-ngot_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\cai-thao-huu-co-500x500.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\cai_bo_xoi_f9715fd5586749ab93154df07eaafa7b_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\cai_bo_xoi_f9715fd5586749ab93154df07eaafa7b_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\dau-cove-1-s-13991_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\dau-cove-1-s-13991_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\mongtoi1.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\mongtoi2.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\su_h_o_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\su_h_o_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\RauCuAnToan\upload_d8e7e66eb722447db459b7fcd8f4c02c_master.png" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ca-chep-dam1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ca-chep-dam1_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ca-chep-dam2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ca-chep-dam_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\chicken-alive_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ga-ri-sa-ch-intergreen-con-song-1-con-intergreen-30101-b83_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ga_doi1_b1e0411a77ae4d1e9dd50b8f6e1197b6_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ga_doi1_b1e0411a77ae4d1e9dd50b8f6e1197b6_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ga_que1_92522d9dddc34ad7b2aec57290e0f6a8_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ga_que1_92522d9dddc34ad7b2aec57290e0f6a8_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ngan-bac-tom_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\ngan-bac-tom_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\recipe_cover_r27661_811cf258af3841b5ad053da4df72b176_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-ba-chi-lon1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-ba-chi-lon2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-ba-chi-lon_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-ba-chi-lon_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-than-lon-que1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-than-lon-que2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-than-lon-que2_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\thit-than-lon-que_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\tom-rao_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-ong-lon-que1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-ong-lon-que_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-ong-lon-que_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-suon-lon-que1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-suon-lon-que1_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\ThitCaDanDa\xuong-suon-lon-que2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TinTucHangNgay\12_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TinTucHangNgay\98263c04256645cfae5e1301d1c1c2e5_grande.jpg" />
+    <Content Include="Areas\Admin\Content\images\TinTucHangNgay\ada_850161960d664357a0270490b29f41d3_grande.jpg" />
+    <Content Include="Areas\Admin\Content\images\TinTucHangNgay\bo-bit-tet-ba-duy_2012913105840286_grande.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\1_vuzs_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\55575534_2819164618101388_6412303219929645056_n_4425b7122ce84cb0ad625be791ff0d17_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\55575534_2819164618101388_6412303219929645056_n_4425b7122ce84cb0ad625be791ff0d17_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\7eb870a7a4407d96effa815ce8fa4a75_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\7eb870a7a4407d96effa815ce8fa4a75_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\9602624716830_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\9602624716830_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\9_cf821d15bd8a418bbd54504ae1b8bcb2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\bot_can_tay_d28188b712a94d09948fa7305bf05c9c_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\bot_can_tay_d28188b712a94d09948fa7305bf05c9c_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\b_nh_gi__compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\cach-lam-banh-gio-6_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\cach-lam-banh-gio-nong-hoi-thom-ngon-4_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\cam-xoan-khoang-6-8-trai-kg-1-700x467_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\cam-xoan-khoang-6-8-trai-kg-1-700x467_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\chuoi_vi_2152c21469e445c383b4a5231587b23e_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\du-du1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\du-du1_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\e7e6a108f50f15514c1e_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\e7e6a108f50f15514c1e_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\img_8749_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\img_8749_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\img_8761_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\img_8761_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\man_an_phuoc_bac_tom-08_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\man_an_phuoc_bac_tom-08_master.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\man_ap1_74d43745f6454d5d89ae990c0733f01a_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\man_ap_999dc335dd7f40519c89d9db87e49f5b_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\oi-dai-loan-1_81f1522728113_compact.png" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\oi-dai-loan-1_81f1522728113_master.png" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\papaya_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\product1657_compact.png" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\product1657_master.png" />
+    <Content Include="Areas\Admin\Content\images\TraiCay\trunggata2_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\TuVanDinhDuong\me_bau_0855a01197cd44fba56b45043c11ef78_grande.jpg" />
+    <Content Include="Areas\Admin\Content\images\TuVanDinhDuong\vang-sua.jpg" />
+    <Content Include="Areas\Admin\Content\images\TuVanDinhDuong\xucxich.jpg" />
+    <Content Include="Areas\Admin\Content\images\untitled-2_09627f6945be4ce99f4f6a6cb83ef5c9_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\ut-ca-mau-1_compact.jpg" />
+    <Content Include="Areas\Admin\Content\images\z1103700397917_9599925a40008fb0e6c9cc0c28ee8869_master.jpg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dangkyStyle.css" />
+    <Content Include="Content\LoginStyle.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Lib\css\bootstrap.min.css" />
+    <Content Include="Lib\css\elegant-icons.css" />
+    <Content Include="Lib\css\font-awesome.min.css" />
+    <Content Include="Lib\css\jquery-ui.min.css" />
+    <Content Include="Lib\css\nice-select.css" />
+    <Content Include="Lib\css\owl.carousel.min.css" />
+    <Content Include="Lib\css\slicknav.min.css" />
+    <Content Include="Lib\css\style.css" />
+    <Content Include="Lib\fonts\ElegantIcons.svg" />
+    <Content Include="Lib\fonts\fontawesome-webfont.svg" />
+    <Content Include="Lib\img\bank_1587134276_image_1587134276.jpg" />
+    <Content Include="Lib\img\banner\banner-1.jpg" />
+    <Content Include="Lib\img\banner\banner-2.jpg" />
+    <Content Include="Lib\img\banner\banner1.jpg" />
+    <Content Include="Lib\img\banner\bn1.jpg" />
+    <Content Include="Lib\img\banner\bn11.jpg" />
+    <Content Include="Lib\img\banner\bn2.jpg" />
+    <Content Include="Lib\img\banner\bn3.png" />
+    <Content Include="Lib\img\blog\blog-1.jpg" />
+    <Content Include="Lib\img\blog\blog-2.jpg" />
+    <Content Include="Lib\img\blog\blog-3.jpg" />
+    <Content Include="Lib\img\blog\blog-4.jpg" />
+    <Content Include="Lib\img\blog\blog-5.jpg" />
+    <Content Include="Lib\img\blog\blog-6.jpg" />
+    <Content Include="Lib\img\blog\details\details-author.jpg" />
+    <Content Include="Lib\img\blog\details\details-hero.jpg" />
+    <Content Include="Lib\img\blog\details\details-pic.jpg" />
+    <Content Include="Lib\img\blog\sidebar\sr-1.jpg" />
+    <Content Include="Lib\img\blog\sidebar\sr-2.jpg" />
+    <Content Include="Lib\img\blog\sidebar\sr-3.jpg" />
+    <Content Include="Lib\img\breadcrumb.jpg" />
+    <Content Include="Lib\img\cart\cart-1.jpg" />
+    <Content Include="Lib\img\cart\cart-2.jpg" />
+    <Content Include="Lib\img\cart\cart-3.jpg" />
+    <Content Include="Lib\img\cart\iconfinder_Cart_605508.png" />
+    <Content Include="Lib\img\cart\themgiohang.png" />
+    <Content Include="Lib\img\categories\cat-1.jpg" />
+    <Content Include="Lib\img\categories\cat-2.jpg" />
+    <Content Include="Lib\img\categories\cat-3.jpg" />
+    <Content Include="Lib\img\categories\cat-4.jpg" />
+    <Content Include="Lib\img\categories\cat-5.jpg" />
+    <Content Include="Lib\img\chiduong.jpg" />
+    <Content Include="Lib\img\featured\feature-1.jpg" />
+    <Content Include="Lib\img\featured\feature-2.jpg" />
+    <Content Include="Lib\img\featured\feature-3.jpg" />
+    <Content Include="Lib\img\featured\feature-4.jpg" />
+    <Content Include="Lib\img\featured\feature-5.jpg" />
+    <Content Include="Lib\img\featured\feature-6.jpg" />
+    <Content Include="Lib\img\featured\feature-7.jpg" />
+    <Content Include="Lib\img\featured\feature-8.jpg" />
+    <Content Include="Lib\img\footer1\iconfinder_67-gmail_1181190.png" />
+    <Content Include="Lib\img\footer1\iconfinder_home_353416.png" />
+    <Content Include="Lib\img\footer1\iconfinder_phone-call_2561306.png" />
+    <Content Include="Lib\img\h2.JPG" />
+    <Content Include="Lib\img\hd1.JPG" />
+    <Content Include="Lib\img\hero\banner.jpg" />
+    <Content Include="Lib\img\language.png" />
+    <Content Include="Lib\img\latest-product\lp-1.jpg" />
+    <Content Include="Lib\img\latest-product\lp-2.jpg" />
+    <Content Include="Lib\img\latest-product\lp-3.jpg" />
+    <Content Include="Lib\img\logo.jpg" />
+    <Content Include="Lib\img\logo.png" />
+    <Content Include="Lib\img\logotps.png" />
+    <Content Include="Lib\img\megamenu_item_icon1.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon2.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon3.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon4.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon5.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon6.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon7.jpg" />
+    <Content Include="Lib\img\megamenu_item_icon8.jpg" />
+    <Content Include="Lib\img\payment-item.png" />
+    <Content Include="Lib\img\product\details\product-details-1.jpg" />
+    <Content Include="Lib\img\product\details\product-details-2.jpg" />
+    <Content Include="Lib\img\product\details\product-details-3.jpg" />
+    <Content Include="Lib\img\product\details\product-details-4.jpg" />
+    <Content Include="Lib\img\product\details\product-details-5.jpg" />
+    <Content Include="Lib\img\product\details\thumb-1.jpg" />
+    <Content Include="Lib\img\product\details\thumb-2.jpg" />
+    <Content Include="Lib\img\product\details\thumb-3.jpg" />
+    <Content Include="Lib\img\product\details\thumb-4.jpg" />
+    <Content Include="Lib\img\product\discount\pd-1.jpg" />
+    <Content Include="Lib\img\product\discount\pd-2.jpg" />
+    <Content Include="Lib\img\product\discount\pd-3.jpg" />
+    <Content Include="Lib\img\product\discount\pd-4.jpg" />
+    <Content Include="Lib\img\product\discount\pd-5.jpg" />
+    <Content Include="Lib\img\product\discount\pd-6.jpg" />
+    <Content Include="Lib\img\product\product-1.jpg" />
+    <Content Include="Lib\img\product\product-10.jpg" />
+    <Content Include="Lib\img\product\product-11.jpg" />
+    <Content Include="Lib\img\product\product-12.jpg" />
+    <Content Include="Lib\img\product\product-2.jpg" />
+    <Content Include="Lib\img\product\product-3.jpg" />
+    <Content Include="Lib\img\product\product-4.jpg" />
+    <Content Include="Lib\img\product\product-5.jpg" />
+    <Content Include="Lib\img\product\product-6.jpg" />
+    <Content Include="Lib\img\product\product-7.jpg" />
+    <Content Include="Lib\img\product\product-8.jpg" />
+    <Content Include="Lib\img\product\product-9.jpg" />
+    <Content Include="Lib\img\vietnam.png" />
+    <Content Include="Lib\js\bootstrap.min.js" />
+    <Content Include="Lib\js\jquery-3.3.1.min.js" />
+    <Content Include="Lib\js\jquery-ui.min.js" />
+    <Content Include="Lib\js\jquery.nice-select.min.js" />
+    <Content Include="Lib\js\jquery.slicknav.js" />
+    <Content Include="Lib\js\main.js" />
+    <Content Include="Lib\js\mixitup.min.js" />
+    <Content Include="Lib\js\owl.carousel.min.js" />
+    <Content Include="Lib\thanhtoan1\free.png" />
+    <Content Include="Models\KLTN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KLTN.edmx</DependentUpon>
+      <LastGenOutput>KLTN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\KLTN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KLTN.edmx</DependentUpon>
+      <LastGenOutput>KLTN.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Timkiem.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenMucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Timkiem.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Timkiem.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Timkiem.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SPs\Details.cshtml" />
+    <Content Include="Lib\fonts\ElegantIcons.eot" />
+    <Content Include="Lib\fonts\ElegantIcons.ttf" />
+    <Content Include="Lib\fonts\ElegantIcons.woff" />
+    <Content Include="Lib\fonts\fontawesome-webfont.eot" />
+    <Content Include="Lib\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Lib\fonts\fontawesome-webfont.woff" />
+    <Content Include="Lib\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Lib\fonts\FontAwesome.otf" />
+    <Content Include="Lib\sass\style.scss" />
+    <Content Include="Lib\sass\_base.scss" />
+    <Content Include="Lib\sass\_blog-details.scss" />
+    <Content Include="Lib\sass\_blog-sidebar.scss" />
+    <Content Include="Lib\sass\_blog.scss" />
+    <Content Include="Lib\sass\_breadcrumb.scss" />
+    <Content Include="Lib\sass\_checkout.scss" />
+    <Content Include="Lib\sass\_contact.scss" />
+    <Content Include="Lib\sass\_footer.scss" />
+    <Content Include="Lib\sass\_header.scss" />
+    <Content Include="Lib\sass\_hero.scss" />
+    <Content Include="Lib\sass\_home-page.scss" />
+    <Content Include="Lib\sass\_mixins.scss" />
+    <Content Include="Lib\sass\_responsive.scss" />
+    <Content Include="Lib\sass\_shop-details.scss" />
+    <Content Include="Lib\sass\_shop-grid.scss" />
+    <Content Include="Lib\sass\_shoping-cart.scss" />
+    <Content Include="Lib\sass\_sidebar.scss" />
+    <Content Include="Lib\sass\_variable.scss" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\dangky.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\thaydoimatkhau.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\capmatkhaumoi.cshtml" />
+    <EntityDeploy Include="Models\KLTN.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KLTN.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\KLTN.edmx.diagram">
+      <DependentUpon>KLTN.edmx</DependentUpon>
+    </Content>
+    <Content Include="libman.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SanPham\Chitiet.cshtml" />
+    <Content Include="Views\SanPham\store_grid.cshtml" />
+    <Content Include="Views\SanPham\timkiem.cshtml" />
+    <Content Include="Views\SanPham\_Product.cshtml" />
+    <Content Include="Views\footer\dscuahang.cshtml" />
+    <Content Include="Views\footer\hdmuahang.cshtml" />
+    <Content Include="Views\footer\csdoitra.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\thanhtoan.cshtml" />
+    <Content Include="Views\GioHang\dathangthanhcong.cshtml" />
+    <Content Include="Views\Home\_Slide.cshtml" />
+    <Content Include="Views\TaiKhoan\dangky.cshtml" />
+    <Content Include="Views\TaiKhoan\dangnhap.cshtml" />
+    <Content Include="Views\TaiKhoan\quenmatkhau.cshtml" />
+    <Content Include="Views\TinTuc\_tintuc.cshtml" />
+    <Content Include="Views\TinTuc\chomebau.cshtml" />
+    <Content Include="Views\TinTuc\tintuchangngay.cshtml" />
+    <Content Include="Views\TinTuc\timkiem.cshtml" />
+    <Content Include="Views\TinTuc\Chitiettin.cshtml" />
+    <Content Include="Views\Shared\_DanhMuc.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_headerTop.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\ckeditor\" />
+    <Folder Include="Areas\Admin\Content\ckfinder\" />
+    <Folder Include="Areas\Admin\Content\_thumbs\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25373</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25373/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
